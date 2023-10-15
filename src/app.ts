@@ -20,6 +20,16 @@ class Department {
     }
 
 }
+
+
+class ItDepartment extends Department {
+    admins: string[]
+
+    constructor (id: number, admins: string[]){
+        super("IT", id)
+        this.admins = admins
+    }
+}
 //// Add new obj
 const Accounting = new Department("Accounting", 0)
 const Cleaning = new Department("Cleaning",1)
@@ -40,3 +50,11 @@ Cleaning.addEmployees("mosss")
 
 Cleaning.Printoutemployee()
 Accounting.Printoutemployee()
+
+const IT = new ItDepartment(2, ["max"])
+
+IT.addEmployees("mosss")
+
+console.log(IT)
+
+
