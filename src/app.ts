@@ -59,3 +59,46 @@ add = (n1:number, n2:number) => {
 }
 
 console.log(add(1,2))
+
+
+
+const Aname :Array<string> = []
+
+// const promise: Promise<string> = new Promise((resolve,reject)=>{
+//     setInterval(()=>{
+//         resolve("Hi there")
+//     }, 2000)
+// })
+
+
+function genericeMerge<T, U>(objA: T, objB: U) {
+    return Object.assign({},objA,objB);
+}
+
+const test1 = genericeMerge({name:"maxi", job:["farter"]},{age:20})
+
+console.log(test1.age)
+
+////////
+interface CourseBuild{
+    title: string,
+    desc: string,
+    date: Date
+}
+
+function MakeCourse (
+    title: string,
+    desc: string,
+    date: Date,
+): CourseBuild {
+    let CourseOne: Partial<CourseBuild> = {}
+    CourseOne.title = title
+    CourseOne.desc = desc
+    CourseOne.date = date
+    return CourseOne as CourseBuild
+}
+
+const Godname : Readonly<String[]> = ["tok", "pla"]
+
+////// ทำไม่ได้เพราะใส่่ Readonly+<generic>
+// Godname.push
